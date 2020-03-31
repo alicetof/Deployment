@@ -14,10 +14,11 @@ if [[ ! -d $NEWPATH ]]; then
   exit
 fi
 
-TOCP="build.sh  clean.sh  enter.sh  init.sh  list.sh  o2suite_config.sh  pipupdate.sh  update.sh"
+TOCP="build.sh  clean.sh  enter.sh  init.sh  list.sh  o2suite_config.sh  pipupdate.sh  update.sh  localaliases.sh"
 set -x
 for i in $TOCP; do 
-  cp -i -v $i $NEWPATH/
+  #cp -i -v $i $NEWPATH/
+  ln -s $PWD/$i $NEWPATH/
 done
 set +x
 
