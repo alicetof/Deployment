@@ -34,3 +34,5 @@ fi
 export O2DEFAULTS="o2"
 export O2DEFAULTS="o2-dataflow"
 
+source localaliases.sh
+
