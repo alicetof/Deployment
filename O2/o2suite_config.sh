@@ -1,7 +1,12 @@
 #!/bin/bash
 
-# Sourcing PATHS for Alibuild
-if [[ -z $1 ]]; then
+# Flag for verbose deployement, set it to non null for quiet
+export VERBOSEDPLMNT=""
+
+####################################
+# Setting environment for AliBuild #
+####################################
+if [[ -z $VERBOSEDPLMNT ]]; then
  echo "~~~~~~~~~~~~~~~~"
  echo "~ SETUP for O2 ~"
  echo "~~~~~~~~~~~~~~~~"
@@ -16,14 +21,14 @@ export PATH="$PYTHONUSERBASE/bin:$PATH"
 ######################
 # Setting Latest GCC #
 ######################
-if [[ -z $1 ]]; then
+if [[ -z $VERBOSEDPLMNT ]]; then
  echo "Last GCC version before O2 setup:"
  gcc --version
 fi
 
 source scl_source enable devtoolset-7
 
-if [[ -z $1 ]]; then
+if [[ -z $VERBOSEDPLMNT ]]; then
  echo "New GCC version after O2 setup:"
  gcc --version
 fi
@@ -34,5 +39,15 @@ fi
 export O2DEFAULTS="o2"
 export O2DEFAULTS="o2-dataflow"
 
-source localaliases.sh
+###########################
+# Setting extra variables #
+###########################
+EXTRASRC="localaliases.sh"
+if [[ -f $EXTRASRC ]]; then
+  source $EXTRASRC
+else
+  echo ">  If you want to provide extra file to source:"
+  echo ">  do create a local file '$EXTRASRC'"
+  echo ">  it will be automatically sourced"
+fi
 
