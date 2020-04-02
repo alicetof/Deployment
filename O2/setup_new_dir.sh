@@ -14,9 +14,13 @@ if [[ ! -d $NEWPATH ]]; then
   exit
 fi
 
-TOCP="build.sh  clean.sh  enter.sh  init.sh  list.sh  o2suite_config.sh  pipupdate.sh  update.sh  localaliases.sh"
+EXCLUDE="setup_new_dir.sh"
+TOCP=$(ls *.sh | xargs)
 set -x
 for i in $TOCP; do 
+  if [[ $EXCLUDE == *$i* ]]; then
+    continue
+  fi
   #cp -i -v $i $NEWPATH/
   ln -s $PWD/$i $NEWPATH/
 done
