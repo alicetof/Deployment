@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Directory of this script
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 # Flag for verbose deployement, set it to non null for quiet
 export VERBOSEDPLMNT=""
 
@@ -42,7 +45,7 @@ export O2DEFAULTS="o2-dataflow"
 ###########################
 # Setting extra variables #
 ###########################
-EXTRASRC="localaliases.sh"
+EXTRASRC="$DIR/localaliases.sh"
 if [[ -f $EXTRASRC ]]; then
   source $EXTRASRC
 else
