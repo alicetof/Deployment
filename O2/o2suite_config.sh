@@ -2,6 +2,8 @@
 
 # Directory of this script
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+# Path for alienv to work
+export ALIBUILD_WORK_DIR="${DIR}/sw"
 
 # Flag for verbose deployement, set it to non null for quiet
 export VERBOSEDPLMNT=""
