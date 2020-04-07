@@ -19,7 +19,7 @@ fi
 # Setting Python variables #
 ############################
 export PYTHONUSERBASE="$HOME/user_python"
-export PATH="$PYTHONUSERBASE/bin:$PATH"
+export PATH="$PATH:$PYTHONUSERBASE/bin"
 
 ######################
 # Setting Latest GCC #
