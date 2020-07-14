@@ -7,9 +7,7 @@ function doit(){
 	echo "~~ Updating $pkgdir ~~"
         sleep 2
 	cd $pkgdir
-	git stash
-	git pull --rebase
-	git stash apply
+	git pull --rebase --autostash
 	cd -
 }
 
