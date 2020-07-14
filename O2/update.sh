@@ -13,7 +13,7 @@ function doit(){
 	cd -
 }
 
-toupdate="alidist $1"
+toupdate="alidist $@"
 
 for i in $toupdate; do
         doit $i
