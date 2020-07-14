@@ -3,8 +3,11 @@
 source o2suite_config.sh
 . pipupdate.sh
 
-echo "Building O2Suite"
-aliBuild build O2Suite --defaults $O2DEFAULTS
+function build_pckg(){
+  echo "Building ${1}"
+  aliBuild build ${1} --defaults $O2DEFAULTS -d | tee ${i}_last_build.log
+}
 
-echo "Building TOFCommissioning"
-aliBuild build TOFCommissioning --defaults $O2DEFAULTS
+build_pckg O2Suite
+
+build_pckg TOFCommissioning
