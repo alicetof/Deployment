@@ -1,7 +1,6 @@
 #!/bin/bash
 
 source o2suite_config.sh
-. pipupdate.sh
 
 function build_pckg(){
     echo "Building ${1}"
@@ -17,5 +16,6 @@ function build_pckg(){
 # build_pckg O2
 # build_pckg QualityControl
 # build_pckg O2Suite
+# build_pckg TOFCommissioning
 
-build_pckg TOFCommissioning
+build_pckg "${O2MAINPKG}"
