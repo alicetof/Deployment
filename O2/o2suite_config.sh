@@ -2,8 +2,8 @@
 
 
 # Flag for verbose deployment, unset it for verbose!
-VERBOSEDPLMNT="non-verbose"
 VERBOSEDPLMNT=""
+VERBOSEDPLMNT="non-verbose"
 function verbose_msg(){
     if [[ -z $VERBOSEDPLMNT ]]; then
         echo "$*"
