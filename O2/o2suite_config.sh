@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-
 # Flag for verbose deployment, unset it for verbose!
 VERBOSEDPLMNT=""
 VERBOSEDPLMNT="non-verbose"
-function verbose_msg(){
+function verbose_msg() {
     if [[ -z $VERBOSEDPLMNT ]]; then
         echo "$*"
     fi
@@ -17,7 +16,7 @@ if [[ -n $DEPLOYMENTSET ]]; then
 fi
 
 # Directory of this script
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 # Path for alienv to work
 export ALIBUILD_WORK_DIR="${DIR}/sw"
 
@@ -48,9 +47,9 @@ else
         echo "Last GCC version before O2 setup:"
         gcc --version
     fi
-    
+
     source scl_source enable devtoolset-7
-    
+
     if [[ -z $VERBOSEDPLMNT ]]; then
         echo "New GCC version after O2 setup:"
         gcc --version
@@ -60,14 +59,15 @@ fi
 ##################################
 # Setting O2 defaults to be used #
 ##################################
-export O2DEFAULTS="o2"
 export O2DEFAULTS="o2-dataflow"
+export O2DEFAULTS="o2"
 verbose_msg "> Building with '$O2DEFAULTS' defaults"
 
 ###############################################
 # Setting O2 main package to be install/enter #
 ###############################################
 export O2MAINPKG="TOFCommissioning"
+export O2MAINPKG="QualityControl"
 export O2MAINPKGBRANCH="master"
 verbose_msg "> Main package to build '$O2MAINPKG' on branch '$O2MAINPKGBRANCH'"
 
