@@ -2,7 +2,7 @@
 
 source o2suite_config.sh
 
-function build_pckg(){
+function build_pckg() {
     echo "Building ${1}"
     LOG_FILE="${1}_last_build.log"
     CMD="aliBuild build ${*} --defaults $O2DEFAULTS -d"
